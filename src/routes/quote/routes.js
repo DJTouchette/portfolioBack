@@ -18,6 +18,11 @@ function QuoteRoutes(app) {
     Quote.deleteQuote(res, id);
   });
 
+  app.put('/quote/responded/:id', (req, res) => {
+    const id = req.params.id;
+    Quote.respondQuote(res, id);
+  });
+
   app.put('/quote/:id', (req, res) => {
     const id = req.params.id;
     const fields = req.body;

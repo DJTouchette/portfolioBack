@@ -61,8 +61,9 @@ class ControllerHelper {
   }
 
   updateDocument(res, id, fields) {
-    this.model.update(id, { $set: fields }, { new: true }, (err, updatedDoc) => {
+    this.model.findByIdAndUpdate(id, { $set: fields }, { new: true }, (err, updatedDoc) => {
       if (err) return res.json(makeResponse(false, err));
+      console.log(updatedDoc);
       return res.json(makeResponse(true, updatedDoc));
     });
   }

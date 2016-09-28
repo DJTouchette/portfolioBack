@@ -30,6 +30,11 @@ class QuoteController extends ControllerHelper {
     super.updateDocument(res, id, fields);
   }
 
+  respondQuote(res, id) {
+    const responded = { responded: true };
+    super.updateDocument(res, id, responded);
+  }
+
 }
 
 export default QuoteController;
