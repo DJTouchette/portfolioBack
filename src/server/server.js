@@ -15,7 +15,7 @@ import env from 'node-env-file';
 
 // ======= All configs live here ============ //
 // ========================================= //
-// import config from '../config/index.js';
+import { connectMongo } from '../config/index.js';
 
 // ============== Routes ==================== //
 // ========================================= //
@@ -30,7 +30,7 @@ const port = process.env.PORT || 8080;
 // ========================================= //
 export default function makeServer() {
   applyMiddleware(app);
-  // config(app);
+  connectMongo(app);
   testRoute(app, port);
   app.listen(port, () => {
     console.log('Listening on port: ' + port);
